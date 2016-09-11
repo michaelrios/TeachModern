@@ -2,6 +2,7 @@
 .DS_Store
 .AppleDouble
 .LSOverride
+.idea
 
 ### SublimeText ###
 # cache files for sublime text
