@@ -70,3 +70,57 @@ $red: #b94a48;
 [hidden][style="display: block;"] {
   display: block !important;
 }
+
+////////////////////////////////
+// CODEWORDS
+////////////////////////////////
+
+$blue: #635FB9;
+$brown: #917355;
+
+.codewords-table {
+  tr {
+    td {
+      height: 100px;
+      width: 20%;
+    }
+  }
+}
+
+.codewords-card {
+  width: 95%;
+  height: 90%;
+  background-color: rgba($black, .2);
+  cursor: pointer;
+  position: relative;
+  box-shadow: 2px 2px 5px grey;
+  .codewords-word {
+    width: 95%;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    &.counter-flip {
+      z-index: 901;
+      -webkit-transform: rotateY(-180deg);
+      -moz-transform: rotateY(-180deg);
+      transform: rotateY(-180deg) translate(50%,-50%);
+    }
+  }
+  &.blue-team {
+    background-color: $blue;
+  }
+  &.red-team {
+    background-color: $red;
+  }
+  &.neutral-team {
+    background-color: $brown;
+  }
+  &.flip {
+    z-index: 900;
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    transition: transform .4s;
+  }
+}

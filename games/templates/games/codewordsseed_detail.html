@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}{{ codewordsseed.game_type|capfirst }}{% endblock %}
+
+
+{% block content %}
+    {{ codewordsseed.name }}
+
+    <table class="codewords-table col-lg-12">
+        <tr>
+            {% for word in codewordsseed.get_words %}
+                {% if forloop.counter|first or forloop.counter|divisibleby:6 %}
+                    <tr>
+                {% endif %}
+
+                <td>
+                    <div class="codewords-card">
+                        <div class="codewords-word">{{ word }}</div>
+                    </div>
+                </td>
+
+                {% if forloop.counter|divisibleby:5 %}
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </tr>
+    </table>
+{% endblock %}
+
+{% block javascript %}
+    {{ block.super }}
+    <script>
+        initCodeWords();
+    </script>
+{% endblock %}

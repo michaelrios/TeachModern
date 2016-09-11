@@ -46,6 +46,9 @@ LOCAL_APPS = (
     # custom users app
     'teachmodern.users.apps.UsersConfig',
     # Your stuff: custom apps go here
+
+    # games
+    'games.apps.GamesConfig',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Games{% endblock %}
+
+
+{% block content %}
+    <ol>
+        {% for game_seed in game_seed_list %}
+            <li><a href="{% url 'games:detail' game_seed.id %}">{{ game_seed.name }}</a></li>
+        {% endfor %}
+    </ol>
+{% endblock %}

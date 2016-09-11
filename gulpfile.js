@@ -73,24 +73,26 @@ gulp.task('imgCompression', function(){
 });
 
 // Run django server
-gulp.task('runServer', function() {
-  exec('python manage.py runserver', function (err, stdout, stderr) {
-    console.log(stdout);
-    console.log(stderr);
-  });
-});
+// gulp.task('runServer', function() {
+//   exec('python manage.py runserver', function (err, stdout, stderr) {
+//     console.log(stdout);
+//     console.log(stderr);
+//   });
+// });
 
 // Browser sync server for live reload
-gulp.task('browserSync', function() {
-    browserSync.init(
-      [paths.css + "/*.css", paths.js + "*.js", paths.templates + '*.html'], {
-        proxy:  "localhost:8000"
-    });
-});
+// gulp.task('browserSync', function() {
+//     browserSync.init(
+//       [paths.css + "/*.css", paths.js + "*.js", paths.templates + '*.html'], {
+//         proxy:  "localhost:8000"
+//     });
+// });
 
 // Default task
 gulp.task('default', function() {
-    runSequence(['styles', 'scripts', 'imgCompression'], 'runServer', 'browserSync');
+    runSequence(['styles', 'scripts', 'imgCompression']
+        // , 'runServer', 'browserSync'
+    );
 });
 
 ////////////////////////////////
@@ -98,11 +100,11 @@ gulp.task('default', function() {
 ////////////////////////////////
 
 // Watch
-gulp.task('watch', ['default'], function() {
-
-  gulp.watch(paths.sass + '/*.scss', ['styles']);
-  gulp.watch(paths.js + '/*.js', ['scripts']).on("change", reload);
-  gulp.watch(paths.images + '/*', ['imgCompression']);
-  gulp.watch(paths.templates + '/**/*.html').on("change", reload);
-
-});
+// gulp.task('watch', ['default'], function() {
+//
+//   gulp.watch(paths.sass + '/*.scss', ['styles']);
+//   gulp.watch(paths.js + '/*.js', ['scripts']).on("change", reload);
+//   gulp.watch(paths.images + '/*', ['imgCompression']);
+//   gulp.watch(paths.templates + '/**/*.html').on("change", reload);
+//
+// });
